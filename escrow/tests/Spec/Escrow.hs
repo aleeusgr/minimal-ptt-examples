@@ -60,6 +60,7 @@ import Test.Tasty.QuickCheck hiding ((.&&.))
 
 import Spec.Endpoints
 
+-- data declaration, https://wiki.haskell.org/Type
 data EscrowModel = EscrowModel { _contributions :: Map Wallet Value
                                , _refundSlot    :: Slot
                                , _targets       :: Map Wallet Value
@@ -387,6 +388,8 @@ refundTrace = do
     Trace.callEndpoint @"refund-escrow" hdl1 ()
     void $ Trace.waitNSlots 1
 
+-- https://en.wikipedia.org/wiki/Type_class
+-- http://learnyouahaskell.com/types-and-typeclasses
 instance CrashTolerance EscrowModel where
   available a          alive = (Key $ WalletKey w) `elem` alive
     where w = case a of

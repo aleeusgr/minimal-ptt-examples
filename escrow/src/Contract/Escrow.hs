@@ -204,6 +204,7 @@ meetsTarget ptx = \case
             _ -> False
 
 {-# INLINABLE validate #-}
+-- is a function, 
 validate :: EscrowParams DatumHash -> PaymentPubKeyHash -> Action -> ScriptContext -> Bool
 validate EscrowParams{escrowDeadline, escrowTargets} contributor action ScriptContext{scriptContextTxInfo} =
     case action of
@@ -377,5 +378,6 @@ payRedeemRefund params vl = do
     _ <- pay inst params vl
     go
 
+-- TODO: find getCovIdx 
 covIdx :: CoverageIndex
 covIdx = getCovIdx $$(PlutusTx.compile [|| validate ||])
