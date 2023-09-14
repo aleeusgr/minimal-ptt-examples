@@ -1,4 +1,4 @@
-{-# LANGUAGE DataKinds            #-}
+{ -# LANGUAGE DataKinds            #-}
 {-# LANGUAGE DeriveAnyClass       #-}
 {-# LANGUAGE DeriveGeneric        #-}
 {-# LANGUAGE DerivingStrategies   #-}
@@ -51,11 +51,13 @@ import Control.Monad.Error.Lens (throwing)
 import Data.Aeson (FromJSON, ToJSON)
 import GHC.Generics (Generic)
 
+-- compiler
 import PlutusTx qualified
 import PlutusTx.Code
 import PlutusTx.Coverage
 import PlutusTx.Prelude hiding (Applicative (..), Semigroup (..), check, foldMap)
 
+-- TODO: find docs for pNetworkId
 import Cardano.Node.Emulator.Params (pNetworkId)
 import Ledger (POSIXTime, PaymentPubKeyHash (unPaymentPubKeyHash), TxId, getCardanoTxId)
 import Ledger qualified
@@ -363,7 +365,9 @@ payRedeemRefund ::
     -> Contract w s EscrowError (Either RefundSuccess RedeemSuccess)
 payRedeemRefund params vl = do
     let inst = typedValidator params
+	-- this does a lot. . .
         go = do
+	    -- 
             networkId <- pNetworkId <$> getParams
             cur <- utxosAt (Scripts.validatorCardanoAddress networkId inst)
             let presentVal = foldMap Tx.decoratedTxOutPlutusValue cur
