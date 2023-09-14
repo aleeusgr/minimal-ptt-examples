@@ -32,6 +32,7 @@ library
   exposed-modules:
     Contract.Escrow
     Spec.Escrow
+-- A list of modules used by the component but not exposed to users.
   other-modules:
     Spec.Endpoints
 
