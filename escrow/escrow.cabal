@@ -25,7 +25,10 @@ flag defer-plugin-errors
   default:     False
   manual:      True
 
+-- what is a haskell library?
 library
+
+-- A list of modules added by this package.
   exposed-modules:
     Contract.Escrow
     Spec.Escrow
