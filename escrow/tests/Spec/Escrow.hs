@@ -247,6 +247,7 @@ prop_validityChecks = checkThreatModelWithOptions options defaultCoverageOptions
 
 tests :: TestTree
 tests = testGroup "escrow"
+-- con ~ condition?
     [ let con = void $ payEp @() @EscrowSchema @EscrowError (escrowParams startTime) in
       checkPredicateOptions options "can pay"
         ( assertDone con (Trace.walletInstanceTag w1) (const True) "escrow pay not done"
