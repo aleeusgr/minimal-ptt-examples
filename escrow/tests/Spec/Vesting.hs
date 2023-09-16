@@ -1,4 +1,4 @@
-module Spec.Vesting( tests ) where
+module Spec.Vesting( tests, VestingModel ) where
 
 import Test.Tasty
 import Test.Tasty.QuickCheck as QC
