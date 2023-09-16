@@ -9,6 +9,14 @@ import Test.Tasty.HUnit qualified as HUnit
 import Data.List
 import Data.Ord
 
+-- define a type to represent the expected expected state of the state of the ecosystem.
+-- compare Escrow L63
+data VestingModel = VestingModel { _contributions :: Map Wallet Value.Value
+                                 , _targets       :: Map Wallet Value.Value
+				 } deriving (Eq, Show, CM.Generic)
+
+makeLenses ''VestingModel
+
 tests :: TestTree
 tests = testGroup "Tests" [properties, unitTests]
 
