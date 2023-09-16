@@ -2,12 +2,15 @@ module Spec.Vesting( tests ) where
 
 import Test.Tasty
 import Test.Tasty.QuickCheck as QC
+import Test.QuickCheck.ContractModel (utxo)
+import Test.QuickCheck.ContractModel.ThreatModel
+import Test.Tasty.HUnit qualified as HUnit
 
 import Data.List
 import Data.Ord
 
 tests :: TestTree
-tests = testGroup "Tests" [properties]
+tests = testGroup "Tests" [properties, unitTests]
 
 properties :: TestTree
 properties = testGroup "Properties" [qcProps]
@@ -23,3 +26,7 @@ qcProps = testGroup "(checked by QuickCheck)"
         (n :: Integer) >= 3 QC.==> x^n + y^n /= (z^n :: Integer)
   ]
 
+unitTests = testGroup "Unit tests"
+  [ HUnit.testCase "List comparison (different length)" $
+      [1, 2, 3] `compare` [1,2] HUnit.@?= GT
+  ]
