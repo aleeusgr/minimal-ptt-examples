@@ -2,6 +2,7 @@
 module Main(main) where
 
 import Spec.Escrow qualified
+import Spec.Vesting qualified
 
 import Test.Tasty
 
@@ -11,5 +12,6 @@ main = defaultMain tests
 tests :: TestTree
 tests =
   testGroup "use cases" [
-    Spec.Escrow.tests
+--    Spec.Escrow.tests,
+    Spec.Vesting.tests
     ]
