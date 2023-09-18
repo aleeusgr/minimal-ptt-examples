@@ -28,6 +28,7 @@ flag defer-plugin-errors
 library
   exposed-modules:
     Contract.Escrow
+    Contract.Vesting
     Spec.Escrow
     Spec.Vesting
   other-modules:
