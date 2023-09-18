@@ -58,6 +58,8 @@ import Test.Tasty.HUnit qualified as HUnit
 import Data.List
 import Data.Ord
 
+testWallets :: [Wallet]
+testWallets = [w1, w2, w3, w4, w5]
 -- define a type to represent the expected expected state of the state of the ecosystem.
 -- compare Escrow L63
 data VestingModel = VestingModel { _contributions :: Map Wallet Value.Value
