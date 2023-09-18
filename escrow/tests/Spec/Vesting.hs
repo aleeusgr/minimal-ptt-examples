@@ -27,7 +27,7 @@ import Ledger.Slot
 import Ledger.Time (POSIXTime)
 import Plutus.Contract.Test hiding (not)
 import Plutus.Contract.Test.ContractModel
-import Plutus.Contracts.Vesting
+import Contract.Vesting
 import Plutus.Script.Utils.Ada qualified as Ada
 import Plutus.Script.Utils.Value
 import Plutus.Trace.Emulator (EmulatorTrace, callEndpoint)
