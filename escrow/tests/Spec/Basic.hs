@@ -3,10 +3,13 @@ module Spec.Basic (tests) where
 import Test.Tasty
 import Test.Tasty.QuickCheck as QC
 import Test.Tasty.HUnit
+import Plutus.Contract.Test
 
 import Data.List
 import Data.Ord
 
+testWallets :: [Wallet]
+testWallets = [w1, w2, w3, w4, w5]
 -- Tests
 
 tests :: TestTree
@@ -29,8 +32,6 @@ qcProps = testGroup "(checked by QuickCheck)"
 unitTests = testGroup "Unit tests"
   [ testCase "List comparison (different length)" $
       [1, 2, 3] `compare` [1,2] @?= GT
-
-  -- the following test does not hold
-  , testCase "List comparison (same length)" $
-      [1, 2, 3] `compare` [1,2,2] @?= LT
+  , testCase "wallets" $
+      w1 `compare` w2
   ]
