@@ -32,6 +32,5 @@ qcProps = testGroup "(checked by QuickCheck)"
 unitTests = testGroup "Unit tests"
   [ testCase "List comparison (different length)" $
       [1, 2, 3] `compare` [1,2] @?= GT
-  , testCase "wallets" $
-      w1 `compare` w2
+  , testCase "wallets" $ 1 @?= 2
   ]
