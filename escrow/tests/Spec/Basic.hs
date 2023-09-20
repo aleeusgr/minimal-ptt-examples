@@ -8,6 +8,13 @@ import Plutus.Contract.Test
 import Data.List
 import Data.Ord
 
+import Ledger.Address qualified as Address
+import Plutus.Script.Utils.Ada qualified as Ada
+import Plutus.Script.Utils.Value qualified as Value
+import Ledger.Typed.Scripts qualified as Scripts
+import Cardano.Node.Emulator qualified as TimeSlot
+import Data.Default (Default (def))
+
 testWallets :: [Wallet]
 testWallets = [w1, w2, w3, w4, w5]
 -- Tests
